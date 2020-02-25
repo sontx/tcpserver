@@ -44,6 +44,7 @@
             this.mnSendText = new System.Windows.Forms.ToolStripMenuItem();
             this.mnSendHex = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnShowIncommingData = new System.Windows.Forms.ToolStripMenuItem();
             this.mnCopy = new System.Windows.Forms.ToolStripMenuItem();
             this.mnCopyAddress = new System.Windows.Forms.ToolStripMenuItem();
             this.mnCopyReceivedData = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,7 +57,6 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.mnSendTextAll = new System.Windows.Forms.ToolStripButton();
             this.mnSendHexAll = new System.Windows.Forms.ToolStripButton();
-            this.mnShowIncommingData = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -159,7 +159,7 @@
             this.mnDisconnect});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(230, 164);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(230, 136);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // mnSendText
@@ -184,6 +184,15 @@
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(226, 6);
+            // 
+            // mnShowIncommingData
+            // 
+            this.mnShowIncommingData.Image = ((System.Drawing.Image)(resources.GetObject("mnShowIncommingData.Image")));
+            this.mnShowIncommingData.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.mnShowIncommingData.Name = "mnShowIncommingData";
+            this.mnShowIncommingData.Size = new System.Drawing.Size(229, 24);
+            this.mnShowIncommingData.Text = "Show Incomming Data";
+            this.mnShowIncommingData.Click += new System.EventHandler(this.mnShowIncommingData_Click);
             // 
             // mnCopy
             // 
@@ -304,15 +313,6 @@
             this.mnSendHexAll.Text = "Send hex to all checked clients";
             this.mnSendHexAll.Click += new System.EventHandler(this.mnSendHexAll_Click);
             // 
-            // mnShowIncommingData
-            // 
-            this.mnShowIncommingData.Image = ((System.Drawing.Image)(resources.GetObject("mnShowIncommingData.Image")));
-            this.mnShowIncommingData.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.mnShowIncommingData.Name = "mnShowIncommingData";
-            this.mnShowIncommingData.Size = new System.Drawing.Size(229, 24);
-            this.mnShowIncommingData.Text = "Show Incomming Data";
-            this.mnShowIncommingData.Click += new System.EventHandler(this.mnShowIncommingData_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -321,6 +321,7 @@
             this.Controls.Add(this.lvClients);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "TcpServer";
             this.statusStrip1.ResumeLayout(false);
