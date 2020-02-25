@@ -71,6 +71,20 @@
                                 <Namespace>TcpServer</Namespace>
                                 <Name>SpaceBetweenElements</Name>
                             </Token>
+                            <Token Table="WholeType">
+                                <Assembly>TcpServer</Assembly>
+                                <Module>TcpServer.exe</Module>
+                                <ItemType>Enum</ItemType>
+                                <Namespace>SharedLib</Namespace>
+                                <Name>DisplayMode</Name>
+                            </Token>
+                            <Token Table="WholeType">
+                                <Assembly>TcpServer</Assembly>
+                                <Module>TcpServer.exe</Module>
+                                <ItemType>Enum</ItemType>
+                                <Namespace>SharedLib</Namespace>
+                                <Name>SpaceBetweenElements</Name>
+                            </Token>
                         </Exclusion>
                     </Obfuscation>
                     <ControlFlow Obfuscate="1" ObfuscationLevel="4" />
