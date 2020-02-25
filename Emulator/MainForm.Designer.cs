@@ -192,9 +192,12 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.labError});
             this.statusStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
-            this.statusStrip1.Location = new System.Drawing.Point(0, 471);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 453);
+            this.statusStrip1.MinimumSize = new System.Drawing.Size(0, 24);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(511, 6);
+            this.statusStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
+            this.statusStrip1.ShowItemToolTips = true;
+            this.statusStrip1.Size = new System.Drawing.Size(511, 24);
             this.statusStrip1.TabIndex = 9;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -203,7 +206,6 @@
             this.labError.ForeColor = System.Drawing.Color.Red;
             this.labError.Name = "labError";
             this.labError.Size = new System.Drawing.Size(0, 0);
-            this.labError.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // MainForm
             // 
