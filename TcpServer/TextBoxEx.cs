@@ -1,5 +1,4 @@
-﻿using Microsoft.VisualBasic;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace TcpServer
@@ -8,20 +7,24 @@ namespace TcpServer
     {
         public bool HexOnly { get; set; }
 
-        protected override void OnKeyDown(KeyEventArgs e)
+        protected override void OnKeyPress(KeyPressEventArgs e)
         {
             if (HexOnly)
             {
-                if (IsHexadecimal(Strings.Chr(e.KeyValue).ToString()) == false && e.KeyCode != Keys.Back)
-                {
+                var ch = e.KeyChar;
+                if (!IsHexadecimal(ch.ToString())
+                    && ch != '\b'
+                    && ch != ' '
+                    && ch != '-')
                     e.Handled = true;
-                    e.SuppressKeyPress = true;
-                }
+                else if (ch >= 'a' && ch <= 'f')
+                    e.KeyChar = char.ToUpper(ch);
             }
-            base.OnKeyDown(e);
+
+            base.OnKeyPress(e);
         }
 
-        public bool IsHexadecimal(string strInput)
+        private bool IsHexadecimal(string strInput)
         {
             var myRegex = new Regex("^[a-fA-F0-9]+$");
             //boolean variable to hold the status

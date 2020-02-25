@@ -56,6 +56,7 @@ namespace TcpServer
         public void SetMode(bool hex)
         {
             hexMode = hex;
+            txtContent.HexOnly = hex;
             base.Text = hex ? "Send Hex" : "Send Text";
         }
 
