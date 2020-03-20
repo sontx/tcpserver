@@ -12,6 +12,12 @@ namespace TcpServer
 {
     public partial class MainForm : BaseForm
     {
+        private const int COLUMN_RECEIVED_DATA_INDEX = 6;
+        private const int COLUMN_RECEIVED_COUNT_INDEX = 4;
+        private const int COLUMN_RECEIVED_TIME_INDEX = 5;
+        private const string DATETIME_ACC_SECONDS_FORMAT = "HH:mm:ss dd/MM/yyyy";
+        private const string DATETIME_ACC_MILLISECONDS_FORMAT = "HH:mm:ss.FFF dd/MM/yyyy";
+
         private readonly AppSettings settings;
         private TcpListener listener;
         private bool stopped;
@@ -21,7 +27,7 @@ namespace TcpServer
             InitializeComponent();
             toolStrip1.ImageScalingSize = new System.Drawing.Size(16, 16);
             settings = ConfigLoader.Default.Get<AppSettings>();
-            lvClients.Columns[4].Width = -2;
+            lvClients.Columns[COLUMN_RECEIVED_DATA_INDEX].Width = -2;
             ClearStatusBar();
         }
 
@@ -65,7 +71,9 @@ namespace TcpServer
                     var endpoint = client.Client.RemoteEndPoint as IPEndPoint;
                     item.SubItems.Add(endpoint.Address.ToString());
                     item.SubItems.Add(endpoint.Port.ToString());
-                    item.SubItems.Add(DateTime.Now.ToString("HH:mm:ss dd/MM/yyyy"));
+                    item.SubItems.Add(DateTime.Now.ToString(DATETIME_ACC_SECONDS_FORMAT));
+                    item.SubItems.Add("");
+                    item.SubItems.Add("");
                     item.SubItems.Add("");
                     var wrapper = new ClientWrapper(client);
                     wrapper.Closed += Wrapper_Closed;
@@ -89,15 +97,33 @@ namespace TcpServer
                 if (item.Tag == sender)
                 {
                     ShowReceivedDataOnItem(item, e.Data);
+                    UpdateReceivedCountOnItem(item);
+                    UpdateReceivedTimeOnItem(item);
                     break;
                 }
             }
         }
 
+        private void UpdateReceivedTimeOnItem(ListViewItem item)
+        {
+            var subItem = item.SubItems[COLUMN_RECEIVED_TIME_INDEX];
+            subItem.Text = DateTime.Now.ToString(DATETIME_ACC_MILLISECONDS_FORMAT);
+        }
+
+        private void UpdateReceivedCountOnItem(ListViewItem item)
+        {
+            var subItem = item.SubItems[COLUMN_RECEIVED_COUNT_INDEX];
+            if (subItem.Tag is int count)
+                subItem.Tag = count + 1;
+            else
+                subItem.Tag = 1;
+            subItem.Text = subItem.Tag.ToString();
+        }
+
         private void ShowReceivedDataOnItem(ListViewItem item, byte[] bytes)
         {
             var displayText = Utils.FormatReceivedData(bytes, settings.SpaceBetweenElements, settings.DisplayMode);
-            var subItem = item.SubItems[4];
+            var subItem = item.SubItems[COLUMN_RECEIVED_DATA_INDEX];
             subItem.Text = displayText;
             subItem.Tag = bytes;
         }
@@ -172,7 +198,7 @@ namespace TcpServer
             {
                 foreach (ListViewItem item in lvClients.Items)
                 {
-                    var subItem = item.SubItems[4];
+                    var subItem = item.SubItems[COLUMN_RECEIVED_DATA_INDEX];
                     if (subItem.Tag is byte[] bytes)
                     {
                         ShowReceivedDataOnItem(item, bytes);
@@ -273,7 +299,7 @@ namespace TcpServer
         {
             DoOnSelectedItem(item =>
             {
-                var subItem = item.SubItems[4];
+                var subItem = item.SubItems[COLUMN_RECEIVED_DATA_INDEX];
                 if (subItem.Tag is byte[] bytes)
                 {
                     var formattedText = Utils.FormatReceivedData(bytes, settings.SpaceBetweenElements, settings.DisplayMode);

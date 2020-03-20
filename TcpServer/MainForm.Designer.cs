@@ -39,6 +39,8 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnSendText = new System.Windows.Forms.ToolStripMenuItem();
@@ -106,6 +108,8 @@
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4,
+            this.columnHeader6,
+            this.columnHeader7,
             this.columnHeader5});
             this.lvClients.ContextMenuStrip = this.contextMenuStrip1;
             this.lvClients.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -141,10 +145,20 @@
             this.columnHeader4.Text = "Connected Time";
             this.columnHeader4.Width = 170;
             // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Received Count";
+            this.columnHeader6.Width = 114;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Received Time";
+            this.columnHeader7.Width = 147;
+            // 
             // columnHeader5
             // 
-            this.columnHeader5.Text = "Received";
-            this.columnHeader5.Width = 347;
+            this.columnHeader5.Text = "Received Data";
+            this.columnHeader5.Width = 185;
             // 
             // contextMenuStrip1
             // 
@@ -362,6 +376,8 @@
         private System.Windows.Forms.ToolStripMenuItem mnCopyAddress;
         private System.Windows.Forms.ToolStripMenuItem mnCopyReceivedData;
         private System.Windows.Forms.ToolStripMenuItem mnShowIncommingData;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
     }
 }
 
