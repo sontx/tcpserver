@@ -104,28 +104,43 @@ namespace TcpServer
             }
         }
 
-        private void UpdateReceivedTimeOnItem(ListViewItem item)
+        private void UpdateReceivedTimeOnItem(ListViewItem item, bool clear = false)
         {
             var subItem = item.SubItems[COLUMN_RECEIVED_TIME_INDEX];
-            subItem.Text = DateTime.Now.ToString(DATETIME_ACC_MILLISECONDS_FORMAT);
+            subItem.Text = clear ? string.Empty : DateTime.Now.ToString(DATETIME_ACC_MILLISECONDS_FORMAT);
         }
 
-        private void UpdateReceivedCountOnItem(ListViewItem item)
+        private void UpdateReceivedCountOnItem(ListViewItem item, bool clear = false)
         {
             var subItem = item.SubItems[COLUMN_RECEIVED_COUNT_INDEX];
-            if (subItem.Tag is int count)
-                subItem.Tag = count + 1;
+            if (clear)
+            {
+                subItem.Tag = 0;
+                subItem.Text = string.Empty;
+            }
             else
-                subItem.Tag = 1;
-            subItem.Text = subItem.Tag.ToString();
+            {
+                if (subItem.Tag is int count)
+                    subItem.Tag = count + 1;
+                else
+                    subItem.Tag = 1;
+                subItem.Text = subItem.Tag.ToString();
+            }
         }
 
-        private void ShowReceivedDataOnItem(ListViewItem item, byte[] bytes)
+        private void ShowReceivedDataOnItem(ListViewItem item, byte[] bytes, bool clear = false)
         {
-            var displayText = Utils.FormatReceivedData(bytes, settings.SpaceBetweenElements, settings.DisplayMode);
             var subItem = item.SubItems[COLUMN_RECEIVED_DATA_INDEX];
-            subItem.Text = displayText;
-            subItem.Tag = bytes;
+            if (clear)
+            {
+                subItem.Text = string.Empty;
+                subItem.Tag = null;
+            }
+            else
+            {
+                subItem.Text = Utils.FormatReceivedData(bytes, settings.SpaceBetweenElements, settings.DisplayMode);
+                subItem.Tag = bytes;
+            }
         }
 
         private void ShowText(ToolStripStatusLabel label, string text)
@@ -317,6 +332,16 @@ namespace TcpServer
                 form.Client = client;
                 form.Show(this);
             }
+        }
+
+        private void mnClear_Click(object sender, EventArgs e)
+        {
+            DoOnSelectedItem(item =>
+            {
+                UpdateReceivedCountOnItem(item, true);
+                UpdateReceivedTimeOnItem(item, true);
+                ShowReceivedDataOnItem(item, null, true);
+            });
         }
     }
 }

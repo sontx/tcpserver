@@ -59,6 +59,7 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.mnSendTextAll = new System.Windows.Forms.ToolStripButton();
             this.mnSendHexAll = new System.Windows.Forms.ToolStripButton();
+            this.mnClear = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -168,12 +169,13 @@
             this.mnSendHex,
             this.toolStripMenuItem1,
             this.mnShowIncommingData,
+            this.mnClear,
             this.mnCopy,
             this.toolStripMenuItem2,
             this.mnDisconnect});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(230, 136);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(230, 188);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // mnSendText
@@ -327,6 +329,15 @@
             this.mnSendHexAll.Text = "Send hex to all checked clients";
             this.mnSendHexAll.Click += new System.EventHandler(this.mnSendHexAll_Click);
             // 
+            // mnClear
+            // 
+            this.mnClear.Image = ((System.Drawing.Image)(resources.GetObject("mnClear.Image")));
+            this.mnClear.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.mnClear.Name = "mnClear";
+            this.mnClear.Size = new System.Drawing.Size(229, 24);
+            this.mnClear.Text = "Clear";
+            this.mnClear.Click += new System.EventHandler(this.mnClear_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -378,6 +389,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnShowIncommingData;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ToolStripMenuItem mnClear;
     }
 }
 
