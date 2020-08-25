@@ -343,5 +343,21 @@ namespace TcpServer
                 ShowReceivedDataOnItem(item, null, true);
             });
         }
+
+        private void mnCheckAll_Click(object sender, EventArgs e)
+        {
+            foreach(ListViewItem item in lvClients.Items)
+            {
+                item.Checked = true;
+            }
+        }
+
+        private void mnUncheckAll_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem item in lvClients.Items)
+            {
+                item.Checked = false;
+            }
+        }
     }
 }

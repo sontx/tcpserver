@@ -47,6 +47,7 @@
             this.mnSendHex = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.mnShowIncommingData = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnClear = new System.Windows.Forms.ToolStripMenuItem();
             this.mnCopy = new System.Windows.Forms.ToolStripMenuItem();
             this.mnCopyAddress = new System.Windows.Forms.ToolStripMenuItem();
             this.mnCopyReceivedData = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,7 +60,9 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.mnSendTextAll = new System.Windows.Forms.ToolStripButton();
             this.mnSendHexAll = new System.Windows.Forms.ToolStripButton();
-            this.mnClear = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnCheckAll = new System.Windows.Forms.ToolStripButton();
+            this.mnUncheckAll = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -83,14 +86,14 @@
             this.labStatus.Image = ((System.Drawing.Image)(resources.GetObject("labStatus.Image")));
             this.labStatus.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.labStatus.Name = "labStatus";
-            this.labStatus.Size = new System.Drawing.Size(16, 16);
+            this.labStatus.Size = new System.Drawing.Size(16, 17);
             // 
             // labClients
             // 
             this.labClients.Image = ((System.Drawing.Image)(resources.GetObject("labClients.Image")));
             this.labClients.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.labClients.Name = "labClients";
-            this.labClients.Size = new System.Drawing.Size(16, 16);
+            this.labClients.Size = new System.Drawing.Size(16, 17);
             // 
             // labError
             // 
@@ -98,7 +101,7 @@
             this.labError.Image = ((System.Drawing.Image)(resources.GetObject("labError.Image")));
             this.labError.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.labError.Name = "labError";
-            this.labError.Size = new System.Drawing.Size(16, 16);
+            this.labError.Size = new System.Drawing.Size(16, 17);
             this.labError.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lvClients
@@ -175,7 +178,7 @@
             this.mnDisconnect});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(230, 188);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(196, 148);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // mnSendText
@@ -183,7 +186,7 @@
             this.mnSendText.Image = ((System.Drawing.Image)(resources.GetObject("mnSendText.Image")));
             this.mnSendText.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnSendText.Name = "mnSendText";
-            this.mnSendText.Size = new System.Drawing.Size(229, 24);
+            this.mnSendText.Size = new System.Drawing.Size(195, 22);
             this.mnSendText.Text = "Send Text...";
             this.mnSendText.Click += new System.EventHandler(this.mnSendText_Click);
             // 
@@ -192,23 +195,32 @@
             this.mnSendHex.Image = ((System.Drawing.Image)(resources.GetObject("mnSendHex.Image")));
             this.mnSendHex.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnSendHex.Name = "mnSendHex";
-            this.mnSendHex.Size = new System.Drawing.Size(229, 24);
+            this.mnSendHex.Size = new System.Drawing.Size(195, 22);
             this.mnSendHex.Text = "Send Hex...";
             this.mnSendHex.Click += new System.EventHandler(this.mnSendHex_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(226, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(192, 6);
             // 
             // mnShowIncommingData
             // 
             this.mnShowIncommingData.Image = ((System.Drawing.Image)(resources.GetObject("mnShowIncommingData.Image")));
             this.mnShowIncommingData.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnShowIncommingData.Name = "mnShowIncommingData";
-            this.mnShowIncommingData.Size = new System.Drawing.Size(229, 24);
+            this.mnShowIncommingData.Size = new System.Drawing.Size(195, 22);
             this.mnShowIncommingData.Text = "Show Incomming Data";
             this.mnShowIncommingData.Click += new System.EventHandler(this.mnShowIncommingData_Click);
+            // 
+            // mnClear
+            // 
+            this.mnClear.Image = ((System.Drawing.Image)(resources.GetObject("mnClear.Image")));
+            this.mnClear.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.mnClear.Name = "mnClear";
+            this.mnClear.Size = new System.Drawing.Size(195, 22);
+            this.mnClear.Text = "Clear";
+            this.mnClear.Click += new System.EventHandler(this.mnClear_Click);
             // 
             // mnCopy
             // 
@@ -218,34 +230,34 @@
             this.mnCopy.Image = ((System.Drawing.Image)(resources.GetObject("mnCopy.Image")));
             this.mnCopy.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnCopy.Name = "mnCopy";
-            this.mnCopy.Size = new System.Drawing.Size(229, 24);
+            this.mnCopy.Size = new System.Drawing.Size(195, 22);
             this.mnCopy.Text = "Copy";
             // 
             // mnCopyAddress
             // 
             this.mnCopyAddress.Name = "mnCopyAddress";
-            this.mnCopyAddress.Size = new System.Drawing.Size(226, 26);
+            this.mnCopyAddress.Size = new System.Drawing.Size(179, 22);
             this.mnCopyAddress.Text = "Copy Address";
             this.mnCopyAddress.Click += new System.EventHandler(this.mnCopyAddress_Click);
             // 
             // mnCopyReceivedData
             // 
             this.mnCopyReceivedData.Name = "mnCopyReceivedData";
-            this.mnCopyReceivedData.Size = new System.Drawing.Size(226, 26);
+            this.mnCopyReceivedData.Size = new System.Drawing.Size(179, 22);
             this.mnCopyReceivedData.Text = "Copy Received Data";
             this.mnCopyReceivedData.Click += new System.EventHandler(this.mnCopyReceivedData_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(226, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(192, 6);
             // 
             // mnDisconnect
             // 
             this.mnDisconnect.Image = ((System.Drawing.Image)(resources.GetObject("mnDisconnect.Image")));
             this.mnDisconnect.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnDisconnect.Name = "mnDisconnect";
-            this.mnDisconnect.Size = new System.Drawing.Size(229, 24);
+            this.mnDisconnect.Size = new System.Drawing.Size(195, 22);
             this.mnDisconnect.Text = "Disconnect";
             this.mnDisconnect.Click += new System.EventHandler(this.mnDisconnect_Click);
             // 
@@ -259,7 +271,10 @@
             this.mnSettings,
             this.toolStripSeparator1,
             this.mnSendTextAll,
-            this.mnSendHexAll});
+            this.mnSendHexAll,
+            this.toolStripSeparator2,
+            this.mnCheckAll,
+            this.mnUncheckAll});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
@@ -273,7 +288,7 @@
             this.mnStart.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnStart.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.mnStart.Name = "mnStart";
-            this.mnStart.Size = new System.Drawing.Size(29, 22);
+            this.mnStart.Size = new System.Drawing.Size(23, 22);
             this.mnStart.Text = "Start";
             this.mnStart.Click += new System.EventHandler(this.mnStart_Click);
             // 
@@ -285,7 +300,7 @@
             this.mnStop.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnStop.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.mnStop.Name = "mnStop";
-            this.mnStop.Size = new System.Drawing.Size(29, 22);
+            this.mnStop.Size = new System.Drawing.Size(23, 22);
             this.mnStop.Text = "Stop";
             this.mnStop.Click += new System.EventHandler(this.mnStop_Click);
             // 
@@ -296,7 +311,7 @@
             this.mnSettings.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnSettings.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.mnSettings.Name = "mnSettings";
-            this.mnSettings.Size = new System.Drawing.Size(29, 22);
+            this.mnSettings.Size = new System.Drawing.Size(23, 22);
             this.mnSettings.Text = "Settings";
             this.mnSettings.Click += new System.EventHandler(this.mnSettings_Click);
             // 
@@ -313,7 +328,7 @@
             this.mnSendTextAll.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnSendTextAll.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.mnSendTextAll.Name = "mnSendTextAll";
-            this.mnSendTextAll.Size = new System.Drawing.Size(29, 22);
+            this.mnSendTextAll.Size = new System.Drawing.Size(23, 22);
             this.mnSendTextAll.Text = "Send text to all checked clients";
             this.mnSendTextAll.Click += new System.EventHandler(this.mnSendTextAll_Click);
             // 
@@ -325,22 +340,40 @@
             this.mnSendHexAll.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnSendHexAll.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.mnSendHexAll.Name = "mnSendHexAll";
-            this.mnSendHexAll.Size = new System.Drawing.Size(29, 22);
+            this.mnSendHexAll.Size = new System.Drawing.Size(23, 22);
             this.mnSendHexAll.Text = "Send hex to all checked clients";
             this.mnSendHexAll.Click += new System.EventHandler(this.mnSendHexAll_Click);
             // 
-            // mnClear
+            // toolStripSeparator2
             // 
-            this.mnClear.Image = ((System.Drawing.Image)(resources.GetObject("mnClear.Image")));
-            this.mnClear.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.mnClear.Name = "mnClear";
-            this.mnClear.Size = new System.Drawing.Size(229, 24);
-            this.mnClear.Text = "Clear";
-            this.mnClear.Click += new System.EventHandler(this.mnClear_Click);
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // mnCheckAll
+            // 
+            this.mnCheckAll.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.mnCheckAll.Image = ((System.Drawing.Image)(resources.GetObject("mnCheckAll.Image")));
+            this.mnCheckAll.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.mnCheckAll.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.mnCheckAll.Name = "mnCheckAll";
+            this.mnCheckAll.Size = new System.Drawing.Size(23, 22);
+            this.mnCheckAll.Text = "Check All";
+            this.mnCheckAll.Click += new System.EventHandler(this.mnCheckAll_Click);
+            // 
+            // mnUncheckAll
+            // 
+            this.mnUncheckAll.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.mnUncheckAll.Image = ((System.Drawing.Image)(resources.GetObject("mnUncheckAll.Image")));
+            this.mnUncheckAll.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.mnUncheckAll.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.mnUncheckAll.Name = "mnUncheckAll";
+            this.mnUncheckAll.Size = new System.Drawing.Size(23, 22);
+            this.mnUncheckAll.Text = "Uncheck All";
+            this.mnUncheckAll.Click += new System.EventHandler(this.mnUncheckAll_Click);
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(854, 475);
             this.Controls.Add(this.lvClients);
@@ -390,6 +423,9 @@
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ToolStripMenuItem mnClear;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripButton mnCheckAll;
+        private System.Windows.Forms.ToolStripButton mnUncheckAll;
     }
 }
 
